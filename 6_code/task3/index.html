@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Document</title>
+  <script type="module" src="./task.js"></script>
+
+</head>
+<style>
+  body, input {
+    font-size: 1.5em;
+  }
+  button {
+    height: 50px;
+    width: 200px;
+    font-size: 1em;
+  }
+  button:hover {
+    background-color: lightcoral
+  }
+  #errorMessage {
+    color: red;
+  }
+</style>
+<body>
+  <form id="charactersForm">
+    <div>
+      <label>
+        First Character ID:
+        <input type="number" name="characterId1">
+      </label>
+    </div>
+    <div>
+      <label>
+        Second Character ID:
+        <input type="number" name="characterId2">
+      </label>
+    </div>
+    <div>
+      <label>
+        Third Character ID:
+        <input type="number" name="characterId3">
+      </label>
+    </div>
+    <button type="submit">Load character</button>
+  </div>
+  <div id="characters"><div>
+  <div id="errorMessage"></div>
+</body>
+</html>
