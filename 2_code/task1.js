@@ -6,7 +6,9 @@ import { surpriseMe } from "../promises";
 */
 
 const task = () => {
-
+  surpriseMe().then(sweetness => {
+    console.log(sweetness);
+  })
 }
 
 task();
