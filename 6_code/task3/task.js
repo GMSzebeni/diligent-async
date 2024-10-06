@@ -34,6 +34,27 @@ const handleSubmitCharacters = async (event) => {
 
   // write your code here
   console.log(characterIds);
+  
+  async function fetchCharacters(characterIds) {
+    const characters = document.getElementById('characters');
+    const errorMessage = document.getElementById('errorMessage');
+  
+    try {
+      const responses = await Promise.all(characterIds.map(character => fetch(`https://swapi.dev/api/people/${character}`)));
+      
+      if (responses.every(response => response.ok)) {
+        const characterIds = await Promise.all(responses.map(response => response.json()));
+
+        const characterNames = characterIds.map(character => character.name);
+        characters.innerHTML = `<h2>Characters are: ${characterNames.join(', ')}</h2>`
+      } else {
+        errorMessage.innerHTML = `<h2>Could not get the character.</h2>`
+      }
+    } catch (error) {
+      characters.innerHTML = "<h2>Unable to fetch data.</h2>"
+    }
+  }
+  fetchCharacters(characterIds)
 }
 const charactersForm = document
   .getElementById('charactersForm')
