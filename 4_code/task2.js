@@ -17,8 +17,15 @@ import { readFile, writeFile } from 'fs/promises'
 
 */
 
-const task = () => {
-
+const task = async () => {
+  try {
+    const text = await readFile('./4_code/quotes.txt', 'utf8');
+    const reversedText = text.split('').reverse().join('');
+    writeFile('./4_code/reversed.txt', reversedText, 'utf-8');
+    console.log(text);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 task()
