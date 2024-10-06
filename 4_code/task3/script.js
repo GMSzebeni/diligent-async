@@ -14,3 +14,21 @@
   
   See: https://rickandmortyapi.com/documentation
 */
+
+async function fetchACharacter(characterId) {
+  const root = document.getElementById('root');
+
+  try {
+    const response = await fetch(`https://rickandmortyapi.com/api/character/${characterId}`);
+    if (response.ok) {
+      const character = await response.json();
+      root.innerHTML = `<h2>Character is: ${character.name}</h2>`
+    } else {
+      root.innerHTML = `<h2>Character not found. Http Status Code: ${response.status}.</h2>`
+    }
+  } catch (error) {
+    root.innerHTML = "<h2>Unable to fetch data.</h2>"
+  }
+}
+
+fetchACharacter(56);
