@@ -5,8 +5,13 @@ import { openSchrodringerBox } from "../promises.js";
   the cat's name to the console, if not stop the chain.
 */
 
-const task = () => {
-
+const task = async () => {
+  try {
+    const cat = await openSchrodringerBox();
+    console.log(cat);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 task()
