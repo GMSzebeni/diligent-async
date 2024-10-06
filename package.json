@@ -9,5 +9,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "This project consist of demo and code blocks. If you need to do some task\r individually you will find these tasks in the `*_code` folders.",
+  "dependencies": {
+    "diligent-academy-javascript-1-async": "file:"
+  }
 }
