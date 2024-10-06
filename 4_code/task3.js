@@ -10,6 +10,52 @@ import { surpriseMe, sleep } from "../promises.js";
   Always log to the user what does it happened.  
 */
 
-const task = ( ) => {
+const task = async () => {
+  try {
+    let wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    const sweet = await surpriseMe();
 
+    console.log(`Eating ${sweet}`);
+    
+    if (sweet === "Muffin") {
+      console.log("Muffin was found, no other sweets can follow!")
+      throw new Error('No more sweetness allowed!');
+    } else if (sweet === "Ice Cream") {
+      console.log("Eating Ice Cream takes a looong time!");
+      await wait(2000);
+    } else {
+      console.log(`Eating a ${sweet} takes short time!`);
+      await wait(1000);
+    }
+
+    console.log(`Finished eating: ${sweet}`);
+  
+  } catch (error) {
+    console.error(error.message);
+    throw new Error();
+  }
 }
+
+/*const task = ( ) => {
+  surpriseMe().then(sweet => {
+    if (sweet === "Muffin") {
+      console.log(sweet);
+      throw new Error("Muffin was found, no other sweets can follow!")    }
+    else if (sweet === "Ice Cream") {
+      setTimeout(() => {
+        console.log(sweet);
+      }, 2000)
+    } else {
+      setTimeout(() => {
+        console.log(sweet);
+      }, 1000)
+    }
+  })
+}*/
+
+const sweet1 = task();
+const sweet2 = task();
+const sweet3 = task();
+const sweet4 = task();
+const sweet5 = task();
+const sweet6 = task();
