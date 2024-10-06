@@ -18,13 +18,10 @@ const task = async () => {
     console.log(`Eating ${sweet}`);
     
     if (sweet === "Muffin") {
-      console.log("Muffin was found, no other sweets can follow!")
       throw new Error('No more sweetness allowed!');
     } else if (sweet === "Ice Cream") {
-      console.log("Eating Ice Cream takes a looong time!");
       await wait(2000);
     } else {
-      console.log(`Eating a ${sweet} takes short time!`);
       await wait(1000);
     }
 
