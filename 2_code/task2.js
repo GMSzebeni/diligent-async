@@ -10,8 +10,13 @@ import { readFile } from "node:fs/promises";
     example; readFile('./some-file.txt', 'utf8')
 */
 
-const task = () => {
-
+const task = async () => {
+  try {
+    const content = await readFile('./quotes.txt', 'utf8');
+    console.log(content);
+  } catch (error) {
+    console.error("Oops! Couldn't read the file. Please check if the file exists and try again.");
+  }
 }
 
 task()
